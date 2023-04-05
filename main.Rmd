@@ -1,0 +1,26 @@
+---
+title: "Coursera-Developing-Data-Products-Week-3"
+author: "Rodrigo Falcão"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(GGally)
+library(ggplot2)
+library(plotly)
+data(mtcars)
+```
+
+## Relation between: Mileage, cylinders, horse-power and weight
+
+Our aim is to analyze the spatial relationship of weight (wt), mileage (mpg), and horse-power (hp) with respect to the x, y, and z-axes, and to depict the number of cylinders (cyl) by assigning colors to the points.It is possible to see that a plan almost exists in this relation.
+
+```{r message=FALSE}
+fig <- plot_ly(mtcars, x = ~wt, y = ~hp, z = ~mpg, color = ~as.factor(cyl))
+fig
+```
+
